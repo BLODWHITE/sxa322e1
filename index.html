@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLODWHITE OFFICIAL</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    /* Giriş Efekti */
+    #intro {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background-color: red;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    #intro h1 {
+      font-size: 120px;
+      color: white;
+      font-family: Arial, sans-serif;
+      animation: fadeInOut 3s forwards, glow 1s infinite alternate;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.5); }
+    }
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px white, 0 0 20px red; }
+      100% { text-shadow: 0 0 20px yellow, 0 0 30px orange; }
+    }
+    #content {
+      display: none;
+    }
+    .main-title {
+      text-align: center;
+      font-size: 60px;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 20px 0;
+      animation: zoomIn 3s ease-in-out;
+    }
+    @keyframes zoomIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .video-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      color: white;
+    }
+    .video-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+    iframe {
+      width: 200px;
+      height: 110px;
+      margin-right: 10px;
+    }
+    .video-title {
+      font-size: 14px;
+      margin-left: 5px;
+    }
+    /* Sekmeler */
+    .tabs {
+      display: flex;
+      background-color: #333;
+      padding: 10px;
+      justify-content: flex-start;
+      overflow-x: scroll;
+    }
+    .tab {
+      margin-right: 15px;
+      padding: 10px;
+      color: white;
+      background-color: #444;
+      cursor: pointer;
+    }
+    .tab:hover {
+      background-color: #555;
+    }
+    .tab.active {
+      background-color: #f00;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      setTimeout(() => {
+        document.getElementById('intro').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+      }, 3000); // 3 saniye sonra siteye geçiş
+    };
+
+    function setActiveTab(tab) {
+      var tabs = document.querySelectorAll('.tab');
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+    }
+  </script>
+</head>
+<body>
+  <!-- Giriş Ekranı -->
+  <div id="intro">
+    <h1>BLOD</h1>
+  </div>
+
+  <!-- Ana İçerik -->
+  <div id="content">
+    <h1 class="main-title">BLODWHITE OFFICIAL</h1>
+    
+    <!-- Sekmeler (Kanallar) -->
+    <div class="tabs">
+      <div class="tab active" onclick="setActiveTab(this)">Ana Kanal</div>
+      <div class="tab" onclick="setActiveTab(this)">Tolboxlar</div>
+      <!-- Diğer kanallar buraya eklenebilir -->
+    </div>
+    
+    <!-- Videolar -->
+    <div class="video-section">
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID1" frameborder="0" allowfullscreen></iframe>
+        <div class="video-title">Video Başlığı 1</div>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allowfullscreen></iframe>
+        <div class="video-title">Video Başlığı 2</div>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID3" frameborder="0" allowfullscreen></iframe>
+        <div class="video-title">Video Başlığı 3</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
